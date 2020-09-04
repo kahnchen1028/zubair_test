@@ -1,0 +1,37 @@
+//====================for flex-box class===========
+.flex-box {
+  display: flex;
+  &.flex-wrap {
+    flex-wrap: wrap;
+  }
+}
+.flex-align-center {
+  align-items: center;
+}
+.flex-align-baseline {
+  align-items: baseline;
+}
+.flex-align-flex-end {
+  align-items: flex-end;
+}
+.flex-align-flex-start {
+  align-items: flex-start;
+}
+.flex-just-center {
+  justify-content: center;
+}
+.flex-just-flex-start {
+  justify-content: flex-start;
+}
+.flex-just-flex-end {
+  justify-content: flex-end;
+}
+.flex-just-around {
+  justify-content: space-around;
+}
+.flex-just-between {
+  justify-content: space-between;
+}
+.flex-direction-column {
+  flex-direction: column;
+}

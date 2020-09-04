@@ -1,0 +1,18 @@
+@import '_compass.scss';
+
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return #{$remSize}rem;
+}
+
+@mixin fontSize($size) {
+  font-size: $size !important;
+  font-size: calculateRem($size) !important;
+}
+
+@mixin shadow($offset-x: 5px, $offset-y: 5px, $color: var(--deep-gray)) {
+  box-shadow: $offset-x $offset-y 10px $color;
+}
+@mixin radius($angle: 10px) {
+  border-radius: $angle;
+}

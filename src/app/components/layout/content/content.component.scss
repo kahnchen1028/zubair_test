@@ -1,0 +1,19 @@
+@import 'mixins';
+article {
+  background-color: var(--white);
+  min-height: 100%;
+  @include shadow();
+  @include radius();
+  header {
+    padding: 40px 20px;
+    @include fontSize(25px);
+    color: var(--deep-gray);
+    border-bottom: 1px solid var(--gray);
+  }
+  section {
+    padding: 40px 20px;
+    & > div:first-child {
+      margin-bottom: 30px;
+    }
+  }
+}

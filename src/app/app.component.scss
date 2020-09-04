@@ -1,0 +1,17 @@
+@import 'variables';
+@import 'mixins';
+
+$double-black-area-height: calc(#{$black-area-height} * 2);
+$double-container-padding: calc(#{$container-area-padding} * 2);
+header,
+footer {
+  height: $black-area-height;
+  background-color: var(--black);
+}
+.container {
+  height: calc(
+    100vh - calc(#{$double-black-area-height} + #{$double-container-padding})
+  );
+  background-color: var(--gray);
+  padding: $container-area-padding;
+}

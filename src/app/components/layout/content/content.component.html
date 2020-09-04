@@ -1,0 +1,21 @@
+<article>
+  <header>Display Rules</header>
+  <section class="flex-box flex-direction-column main-content">
+    <div>
+      <app-rule-block
+        ruleTitle="Inclusion Rules"
+        ruleDescription="Where would you like to display your campaign?"
+        [ruleType]="ruleCategory.INCLUSION"
+      >
+      </app-rule-block>
+    </div>
+    <div>
+      <app-rule-block
+        ruleTitle="Exclusion Rules"
+        ruleDescription="Where would you like to NOT display your campaign?"
+        [ruleType]="ruleCategory.EXCLUSION"
+      >
+      </app-rule-block>
+    </div>
+  </section>
+</article>

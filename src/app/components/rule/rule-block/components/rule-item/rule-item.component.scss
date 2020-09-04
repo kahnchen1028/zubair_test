@@ -1,0 +1,21 @@
+.rule-item {
+  & > div:nth-child(1) {
+    flex: 25%;
+    max-width: 25%;
+  }
+  & > div:nth-child(2) {
+    flex: 25%;
+  }
+  & > div:nth-child(3) {
+    flex: 45%;
+  }
+  & > div:nth-child(4) {
+    flex: 5%;
+  }
+  select {
+    width: 95%;
+  }
+  input {
+    width: 95%;
+  }
+}

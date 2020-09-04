@@ -1,0 +1,19 @@
+@import 'mixins';
+section {
+  @include radius();
+  @include shadow();
+
+  padding: 25px;
+  header {
+    div {
+      margin-bottom: 10px;
+    }
+    .title {
+      @include fontSize(30px);
+    }
+    .description {
+      @include fontSize(16px);
+      color: var(--deep-gray);
+    }
+  }
+}

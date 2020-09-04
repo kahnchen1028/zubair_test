@@ -1,0 +1,38 @@
+<div class="flex-box rule-item" [formGroup]="ruleForm">
+  <div>
+    <select name="page" formControlName="page">
+      <ng-container *ngFor="let page of pageList">
+        <option [value]="page">{{ page }}</option>
+      </ng-container>
+    </select>
+  </div>
+  <div *ngIf="pageValue === pageCategory.CUSTOM">
+    <select
+      *ngIf="pageValue === pageCategory.CUSTOM"
+      name="contain"
+      formControlName="contain"
+    >
+      <ng-container *ngFor="let contain of containList">
+        <option [value]="contain">{{ contain }}</option>
+      </ng-container>
+    </select>
+  </div>
+  <div *ngIf="pageValue === pageCategory.CUSTOM">
+    <input
+      type="text"
+      name="partialUrl"
+      formControlName="partialUrl"
+      placeholder="Type a full or partial URL"
+    />
+  </div>
+  <div>
+    <button
+      class="deleteBtn"
+      name="deleteRule"
+      id="deleteRule"
+      (click)="deleteRule()"
+    >
+      X
+    </button>
+  </div>
+</div>

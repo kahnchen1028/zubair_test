@@ -1,0 +1,17 @@
+<section>
+  <header>
+    <div class="title">{{ ruleTitle }}</div>
+    <div class="description">{{ ruleDescription }}</div>
+  </header>
+  <div [formGroup]="rulesForm">
+    <div
+      *ngFor="let item of rules.controls; let i = index"
+      formArrayName="rules"
+    >
+      <app-rule-item [ruleType]="ruleType" [ruleForm]="item"></app-rule-item>
+    </div>
+  </div>
+  <footer>
+    <button (click)="addNewRule()">+ NEW RULE</button>
+  </footer>
+</section>
