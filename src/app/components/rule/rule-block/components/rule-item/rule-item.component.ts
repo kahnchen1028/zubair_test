@@ -1,10 +1,17 @@
-import { Component, OnInit, Input, HostListener } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  HostListener,
+  AfterViewInit,
+  ElementRef
+} from '@angular/core';
 import {
   PageCategory,
   ContainCategory,
   Rule
 } from 'src/app/@code/model/common.model';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { RulesService } from 'src/app/@code/service/rules.service';
 
 @Component({
@@ -12,7 +19,7 @@ import { RulesService } from 'src/app/@code/service/rules.service';
   templateUrl: './rule-item.component.html',
   styleUrls: ['./rule-item.component.scss']
 })
-export class RuleItemComponent implements OnInit {
+export class RuleItemComponent implements OnInit, AfterViewInit {
   pageList = Object.values(PageCategory);
   containList = Object.values(ContainCategory);
   pageCategory = PageCategory;
@@ -22,13 +29,18 @@ export class RuleItemComponent implements OnInit {
 
   @HostListener('change', ['$event.target'])
   onChange() {
-    console.log('change');
     this.saveRule();
   }
+  constructor(private rulesService: RulesService, private el: ElementRef) {}
 
   get pageValue() {
     return this.ruleForm.controls.page.value;
   }
+
+  get partialUrl() {
+    return this.ruleForm.controls['partialUrl'] as FormControl;
+  }
+
   deleteRule() {
     let rule = this.ruleForm.value as Rule;
     this.rulesService.deleteRule(this.ruleType, rule.id);
@@ -39,7 +51,11 @@ export class RuleItemComponent implements OnInit {
     this.rulesService.saveSpecificRule(this.ruleType, rule.id, rule);
   }
 
-  constructor(private rulesService: RulesService) {}
-
   ngOnInit() {}
+
+  ngAfterViewInit() {
+    if (this.ruleForm.controls['partialUrl']) {
+      this.ruleForm.controls['partialUrl'].setValidators([Validators.required]);
+    }
+  }
 }

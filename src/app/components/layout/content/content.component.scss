@@ -2,6 +2,7 @@
 article {
   background-color: var(--white);
   min-height: 100%;
+
   @include shadow();
   @include radius();
   header {
@@ -10,8 +11,10 @@ article {
     color: var(--deep-gray);
     border-bottom: 1px solid var(--gray);
   }
-  section {
+  .main-content {
     padding: 40px 20px;
+    overflow: auto;
+    max-height: calc(100vh - 350px);
     & > div:first-child {
       margin-bottom: 30px;
     }

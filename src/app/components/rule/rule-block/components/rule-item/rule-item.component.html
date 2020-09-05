@@ -1,4 +1,4 @@
-<div class="flex-box rule-item" [formGroup]="ruleForm">
+<div class="flex-box rule-item flex-align-center" [formGroup]="ruleForm">
   <div>
     <select name="page" formControlName="page">
       <ng-container *ngFor="let page of pageList">
@@ -6,33 +6,37 @@
       </ng-container>
     </select>
   </div>
-  <div *ngIf="pageValue === pageCategory.CUSTOM">
-    <select
-      *ngIf="pageValue === pageCategory.CUSTOM"
-      name="contain"
-      formControlName="contain"
-    >
+  <div [hidden]="!(pageValue === pageCategory.CUSTOM)">
+    <select name="contain" formControlName="contain">
       <ng-container *ngFor="let contain of containList">
         <option [value]="contain">{{ contain }}</option>
       </ng-container>
     </select>
   </div>
-  <div *ngIf="pageValue === pageCategory.CUSTOM">
+  <div
+    [hidden]="!(pageValue === pageCategory.CUSTOM)"
+    class="flex flex-direction-column relative"
+  >
     <input
       type="text"
       name="partialUrl"
       formControlName="partialUrl"
       placeholder="Type a full or partial URL"
     />
+    <div class="error" [ngClass]="{ show: partialUrl.invalid }">
+      URL is missing !
+    </div>
   </div>
+
   <div>
     <button
       class="deleteBtn"
+      [ngClass]="{ error: partialUrl.invalid }"
       name="deleteRule"
       id="deleteRule"
       (click)="deleteRule()"
     >
-      X
+      +
     </button>
   </div>
 </div>

@@ -1,3 +1,4 @@
+@import 'mixins';
 .rule-item {
   & > div:nth-child(1) {
     flex: 25%;
@@ -14,8 +15,48 @@
   }
   select {
     width: 95%;
+    height: 50px;
+    border-radius: 5px;
+    padding-left: 10px;
+    font-size: 20px;
   }
   input {
     width: 95%;
+    height: 50px;
+    border-radius: 5px;
+    padding-left: 10px;
+    font-size: 20px;
+  }
+  .deleteBtn {
+    @include radius(50%);
+    @include fontSize(25px);
+    border: 1px solid var(--deep-gray);
+    color: var(--deep-gray);
+    background-color: var(--white);
+    transform: rotate(45deg);
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    &.error {
+      border: 1px solid var(--red-30);
+      color: var(--red-30);
+    }
+  }
+  div.error {
+    @include radius(5px);
+    width: calc(98% - 20px);
+    height: 0px;
+    position: absolute;
+    left: 0;
+    top: 60px;
+    background-color: var(--red-50);
+    color: var(--red-30);
+    transition: height 0.8s ease;
+    overflow: hidden;
+    &.show {
+      height: 50px;
+      line-height: 50px;
+      padding: 0 10px;
+    }
   }
 }

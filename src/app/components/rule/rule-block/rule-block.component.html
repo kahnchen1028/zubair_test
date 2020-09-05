@@ -3,15 +3,18 @@
     <div class="title">{{ ruleTitle }}</div>
     <div class="description">{{ ruleDescription }}</div>
   </header>
-  <div [formGroup]="rulesForm">
+  <div class="rules" [formGroup]="rulesForm">
     <div
       *ngFor="let item of rules.controls; let i = index"
       formArrayName="rules"
     >
+      <p *ngIf="i > 0">OR</p>
       <app-rule-item [ruleType]="ruleType" [ruleForm]="item"></app-rule-item>
     </div>
   </div>
-  <footer>
-    <button (click)="addNewRule()">+ NEW RULE</button>
+  <footer class="flex-box">
+    <div>
+      <button classs="pointer" (click)="addNewRule()">+ NEW RULE</button>
+    </div>
   </footer>
 </section>

@@ -16,4 +16,23 @@ section {
       color: var(--deep-gray);
     }
   }
+  .rules {
+    padding: 5px 0 20px 0;
+  }
+  footer {
+    button {
+      @include radius();
+      @include fontSize(20px);
+      transition: all 0.3s ease;
+      width: 150px;
+      height: 60px;
+      background-color: var(--white);
+      border: 2px solid var(--gray);
+      cursor: pointer;
+      &:hover {
+        background-color: var(--gray);
+        @include shadow();
+      }
+    }
+  }
 }

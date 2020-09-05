@@ -58,7 +58,7 @@ export class RuleBlockComponent implements OnInit, OnDestroy {
       id: new Date().getTime().toString(),
       page: PageCategory.ALL_PAGES,
       contain: ContainCategory.CONTAINS,
-      partialUrl: ''
+      partialUrl: null
     });
   }
 
